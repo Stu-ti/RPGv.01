@@ -1,9 +1,9 @@
 ###############################################################################
-#RPG_Modules
+#Stuti_Home_Adventure
 #CS 30
 #May 10, 2023
 #Stuti Sapru
-#Version 003
+#Version 004
 ###############################################################################
 '''
 A simple game using a map and items in the rooms of the map
@@ -19,11 +19,8 @@ to the user's inventory twice, even if the user goes to the same room more than
 one time.
 '''
 
-#this calls the module that contains the map (in the form of a list)
+#this calls the module that contains the map, its items and descriptions
 import Map
-#this calls the module that contains all the rooms of the map and their 
-#descriptions
-import Map_Rooms
 #this calls the module that controls everything related to the user's inventory
 import Inventory
 #this calls the module that control's the user's movement between rooms and 
@@ -47,10 +44,10 @@ while Movement.loop == True:
     #this statement prints what room the user is in
     print(f"\nYou are in room: {Map.map[Movement.row][Movement.column]}")
     #this loop prints the description of the room the user is in
-    for key in Map_Rooms.map_rooms:
+    for key in Map.map_rooms:
         if key == Map.map[Movement.row][Movement.column]:
-            for des in Map_Rooms.map_rooms[key]:
-                print(f"{Map_Rooms.map_rooms[key][des]}")
+            for des in Map.map_rooms[key]:
+                print(f"{Map.map_rooms[key][des]}")
     #this call the function that controls the user's inventory from 
     #another module
     Inventory.get_items()
